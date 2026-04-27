@@ -1,1 +1,49 @@
-<p>restaurantes works!</p>
+<app-header [titulo]="'Restaurantes'"></app-header>
+
+<div class="container">
+
+  <button (click)="detectar()">
+    📍 Buscar paradas AMB cercanas
+  </button>
+
+  @if (lat() && lng()) {
+  <a [href]="'https://www.google.com/maps?q=' + lat() + ',' + lng()" target="_blank">
+    🗺 Ver mi ubicación en Google Maps
+  </a>
+  }
+
+  <!-- 🗺️ MAPA -->
+  <div id="map"></div>
+
+  @if (loading()) {
+  <p>Cargando...</p>
+  }
+
+  <h2>🍽️ Restaurantes</h2>
+
+  <!-- GRID RESTAURANTES -->
+  <div class="grid">
+    @for (r of restaurants(); track $index) {
+    <app-restaurantes-card [restaurant]="r"
+      (onVerMapa)="map.setView([$event.lat, $event.lng], 17)"></app-restaurantes-card>
+    }
+  </div>
+
+  <!-- GRID PARADAS -->
+  <div class="grid">
+    @for (stop of stops(); track $index) {
+    <div class="card">
+      <h3>🚏 {{ stop.name }}</h3>
+
+      <p>📏 Distancia: {{ stop.distance | number:'1.2-2' }} km</p>
+
+      <p>🚌 Próximos buses:</p>
+
+      @for (b of stop.nextBuses; track $index) {
+      <span>{{ b }} min </span>
+      }
+    </div>
+    }
+  </div>
+
+</div>

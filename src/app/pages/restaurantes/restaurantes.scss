@@ -1,0 +1,58 @@
+:host {
+  display: block;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.container {
+  max-width: 1000px;
+  margin: 0 auto; // 👈 centra todo
+  padding: 20px;
+  text-align: center;
+}
+
+/* BOTÓN */
+button {
+  margin-bottom: 10px;
+}
+
+/* LINK */
+a {
+  display: block;
+  margin-bottom: 15px;
+}
+
+/* MAPA */
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+/* GRID (reutilizable) */
+.grid {
+  display: flex;
+  justify-content: center; // 👈 centra cards
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+/* CARDS PARADAS */
+.card {
+  width: 220px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+button {
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  background: #1976d2;
+  color: white;
+  cursor: pointer;
+}
