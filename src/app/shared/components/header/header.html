@@ -1,0 +1,23 @@
+<header class="app-header">
+  <div class="header-inner">
+    <a class="brand" href="/" aria-label="Ir al inicio">
+      <span class="brand-icon">⚡</span>
+      <span class="brand-text">{{ titulo() }}</span>
+    </a>
+
+    <nav class="nav-group" aria-label="Navegación principal">
+      <a class="nav-link" [routerLink]="'/home'" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+        Inicio
+      </a>
+      <a class="nav-link" [routerLink]="'/carrito'" routerLinkActive="active">
+        Carrito
+      </a>
+      <a class="nav-link" [routerLink]="'/about'" routerLinkActive="active">
+        Acerca de
+      </a>
+      <button class="btn-logout" type="button" (click)="logout()">
+        Cerrar sesión
+      </button>
+    </nav>
+  </div>
+</header>

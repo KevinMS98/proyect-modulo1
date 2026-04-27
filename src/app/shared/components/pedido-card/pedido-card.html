@@ -1,0 +1,38 @@
+<article class="pedido-card">
+  <header class="pedido-header">
+    <span class="pedido-titulo">{{ item()?.tipo }}</span>
+    @if (showEditarButton()) {
+    <span class="pedido-badge">Editable</span>
+    }
+  </header>
+
+  <div class="pedido-datos">
+    <div class="dato-item">
+      <span class="dato-label">Origen</span>
+      <span class="dato-valor">{{ item()?.origen }}</span>
+    </div>
+    <div class="dato-item">
+      <span class="dato-label">Peso</span>
+      <span class="dato-valor">{{ item()?.peso }}</span>
+    </div>
+    <div class="dato-item">
+      <span class="dato-label">Maduración</span>
+      <span class="dato-valor">{{ item()?.maduracion }}</span>
+    </div>
+    <div class="dato-item">
+      <span class="dato-label">Cantidad</span>
+      <span class="dato-valor">{{ item()?.cantidad }}</span>
+    </div>
+  </div>
+
+  <footer class="pedido-acciones">
+    @if (showEditarButton()) {
+    <button type="button" class="btn btn-outline" (click)="editarPedido($index()!)">
+      Editar
+    </button>
+    }
+    <button type="button" class="btn btn-danger" (click)="eliminarPedido($index()!)">
+      Eliminar
+    </button>
+  </footer>
+</article>

@@ -1,0 +1,150 @@
+:host {
+  --bg-page: #0b0e11;
+  --bg-card: #111317;
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --radius: 0.5rem;
+  --transition: 0.15s ease;
+  --font-stack: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+:host {
+  display: block;
+  min-height: 100vh;
+  background: var(--bg-page);
+  font-family: var(--font-stack);
+  color: var(--text-primary);
+}
+
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin: 0 0 1.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.form-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.pedido-form {
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+}
+
+// 🎨 Overrides para Angular Material Dark
+::ng-deep {
+  mat-form-field.appearance-outline {
+    .mdc-text-field--outlined {
+      background: rgba(255, 255, 255, 0.02) !important;
+    }
+
+    .mdc-notched-outline__leading,
+    .mdc-notched-outline__notch,
+    .mdc-notched-outline__trailing {
+      border-color: var(--border-subtle) !important;
+    }
+
+    &:hover .mdc-notched-outline__leading,
+    &:hover .mdc-notched-outline__notch,
+    &:hover .mdc-notched-outline__trailing {
+      border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    &.mdc-text-field--focused .mdc-notched-outline__leading,
+    &.mdc-text-field--focused .mdc-notched-outline__notch,
+    &.mdc-text-field--focused .mdc-notched-outline__trailing {
+      border-color: var(--accent) !important;
+    }
+
+    .mat-mdc-form-field-label {
+      color: var(--text-secondary) !important;
+    }
+
+    .mat-mdc-input-element {
+      color: var(--text-primary) !important;
+      caret-color: var(--accent) !important;
+    }
+
+    mat-error {
+      color: #f87171 !important;
+      font-size: 0.75rem;
+    }
+  }
+
+  button.mat-mdc-flat-button.mat-primary {
+    background: var(--accent) !important;
+    color: #fff !important;
+
+    &:hover {
+      background: var(--accent-hover) !important;
+    }
+  }
+}
+
+.list-section {
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.25rem;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+  background: var(--bg-card);
+  border: 1px dashed var(--border-subtle);
+  border-radius: var(--radius);
+
+  .empty-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-container {
+    padding: 1.5rem 1rem;
+  }
+
+  .form-section {
+    padding: 1.25rem;
+  }
+
+  .pedido-form .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .list-section .cards-grid {
+    grid-template-columns: 1fr;
+  }
+}
